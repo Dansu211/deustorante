@@ -1,0 +1,6 @@
+Nombre: Ensalada César, Calidad: 8, Tiempo de preparación: 15, Tipo: Vegetariano
+Nombre: Pizza Margarita, Calidad: 9, Tiempo de preparación: 20, Tipo: Normal
+Nombre: Hamburguesa Especial, Calidad: 7, Tiempo de preparación: 25, Tipo: Especial
+Nombre: Spaghetti Bolognese, Calidad: 10, Tiempo de preparación: 30, Tipo: Normal
+Nombre: Tofu a la Plancha, Calidad: 6, Tiempo de preparación: 10, Tipo: Vegetariano
+Nombre: Sopa de Mariscos, Calidad: 8, Tiempo de preparación: 20, Tipo: Normal
