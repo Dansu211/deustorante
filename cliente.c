@@ -1,5 +1,6 @@
 #include "cliente.h"
 #include "db.h"
+#include <sqlite3.h>
 
 void realizar_reserva(sqlite3 *db, int num_personas, int tipo_menu, const char* fecha, const char* hora) {
     guardar_reserva(db, num_personas, tipo_menu, fecha, hora);

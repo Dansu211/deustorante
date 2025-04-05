@@ -1,0 +1,9 @@
+MANERA DE COMPILAR EL CODIGO //Ayuda de chat para esta solucion
+
+
+gcc -c sqlite3.c -o sqlite3.o -DSQLITE_THREADSAFE=0
+gcc -c reserva.c -o reserva.o -I.
+gcc -c db.c -o db.o -I.
+gcc -c cliente.c -o cliente.o -I.
+gcc -c main.c -o main.o -I.
+gcc sqlite3.o reserva.o db.o cliente.o main.o -o cliente_deustorante.exe

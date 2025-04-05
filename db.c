@@ -3,6 +3,7 @@
 #include "db.h"
 #include "sqlite3.h"
 #include <stdlib.h>
+#include <sqlite3.h>
 
 int inicializar_db(sqlite3 **db) {
     int rc = sqlite3_open("deustorante.db", db);

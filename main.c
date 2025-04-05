@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include <sqlite3.h>
+#include "sqlite3.h"
 #include "cliente.h"
 #include "db.h"
+#include <sqlite3.h>
 
 int main() {
     sqlite3 *db;
@@ -12,7 +13,7 @@ int main() {
 
     int opcion = 0;
     while (opcion != 5) {
-        printf("=== MENÚ CLIENTE - DEUSTORANTE ===\n");
+        printf("=== MENU CLIENTE - DEUSTORANTE ===\n");
         printf("1. Realizar una nueva reserva\n");
         printf("2. Ver mis reservas\n");
         printf("3. Modificar una reserva\n");
@@ -27,11 +28,11 @@ int main() {
                 int numero_personas, tipo_menu;
                 char fecha[11], hora[6];
                 
-                printf("Ingrese número de personas: ");
+                printf("Ingrese numero de personas: ");
                 scanf("%d", &numero_personas);
                 getchar();
                 
-                printf("Seleccione tipo de menú (1. Normal, 2. Vegetariano, 3. Especial): ");
+                printf("Seleccione tipo de menu (1. Normal, 2. Vegetariano, 3. Especial): ");
                 scanf("%d", &tipo_menu);
                 getchar();
                 
@@ -44,7 +45,7 @@ int main() {
                 hora[strcspn(hora, "\n")] = 0;
                 
                 realizar_reserva(db, numero_personas, tipo_menu, fecha, hora);
-                printf("Reserva realizada con éxito.\n");
+                printf("Reserva realizada con exito.\n");
                 break;
             }
             case 2: {
@@ -68,16 +69,16 @@ int main() {
                 fgets(nueva_hora, sizeof(nueva_hora), stdin);
                 nueva_hora[strcspn(nueva_hora, "\n")] = 0;
                 
-                printf("Nuevo número de personas: ");
+                printf("Nuevo numero de personas: ");
                 scanf("%d", &nuevo_numero_personas);
                 getchar();
                 
-                printf("Nuevo tipo de menú (1. Normal, 2. Vegetariano, 3. Especial): ");
+                printf("Nuevo tipo de menu (1. Normal, 2. Vegetariano, 3. Especial): ");
                 scanf("%d", &nuevo_tipo_menu);
                 getchar();
                 
                 modificar_reserva_cliente(db, id_reserva, nueva_fecha, nueva_hora, nuevo_numero_personas, nuevo_tipo_menu);
-                printf("Reserva modificada con éxito.\n");
+                printf("Reserva modificada con exito.\n");
                 break;
             }
             case 4: {
@@ -87,14 +88,14 @@ int main() {
                 getchar();
                 
                 cancelar_reserva_cliente(db, id_reserva);
-                printf("Reserva cancelada con éxito.\n");
+                printf("Reserva cancelada con exito.\n");
                 break;
             }
             case 5:
                 printf("Saliendo del programa...\n");
                 break;
             default:
-                printf("Opción no válida. Intente de nuevo.\n");
+                printf("Opcion no valida. Intente de nuevo.\n");
         }
     }
 

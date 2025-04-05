@@ -1,7 +1,7 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
 
-#include <sqlite3.h>
+#include "sqlite3.h"
 
 void realizar_reserva(sqlite3 *db, int num_personas, int tipo_menu, const char* fecha, const char* hora);
 void ver_reservas(sqlite3 *db);
