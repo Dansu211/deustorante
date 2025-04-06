@@ -33,9 +33,9 @@ typedef struct {
 
 #include "sqlite3.h"
 
-void realizar_reserva(sqlite3 *db, int num_personas, int tipo_menu, const char* fecha, const char* hora);
+int realizar_reserva(sqlite3 *db, const char *nombre_cliente, const char *telefono, int id_menu, int id_mesa, int num_personas, const char *fecha, const char *hora);
 void ver_reservas(sqlite3 *db);
-void modificar_reserva_cliente(sqlite3 *db, int id, const char* nueva_fecha, const char* nueva_hora, int nuevo_num_personas, int nuevo_tipo_menu);
+void modificar_reserva_cliente(sqlite3 *db, int id, int id_mesa, const char *nueva_fecha, const char *nueva_hora, int nuevo_num_personas, int nuevo_id_menu);
 void cancelar_reserva_cliente(sqlite3 *db, int id);
 
 #endif
