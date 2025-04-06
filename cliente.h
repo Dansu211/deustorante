@@ -1,6 +1,36 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
 
+#define TAM_DNI 10
+#define TAM_NOMBRE 50
+#define TAM_APELLIDOS 100
+#define TAM_DIRECCION 150
+#define TAM_TELEFONO 15
+#define TAM_EMAIL 100
+#define TAM_FECHA 11
+
+typedef struct {
+    int ID;
+    char dni[TAM_DNI];
+    char nombre[TAM_NOMBRE];
+    char apellidos[TAM_APELLIDOS];
+    char direccion[TAM_DIRECCION];
+    char tlf[TAM_TELEFONO];
+    char email[TAM_EMAIL];
+    char fecha_registro[TAM_FECHA];
+} Client;
+
+typedef struct {
+    Client *aClient;
+    int numClient;
+} ListaClientes;
+
+// void iniLC(ListaClientes *lc);
+// void addClient(ListaClientes *lc, Client c);
+// void printCli(Client c);
+// void printLCli(ListaClientes lc);
+// Client registrarCliente(ListaClientes lc);
+
 #include "sqlite3.h"
 
 void realizar_reserva(sqlite3 *db, int num_personas, int tipo_menu, const char* fecha, const char* hora);
