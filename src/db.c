@@ -10,7 +10,7 @@ int inicializar_db(sqlite3 **db, const char *db_name) {
         fprintf(stderr, "No se pudo abrir la base de datos: %s\n", sqlite3_errmsg(*db));
         return 1;
     }
-
+	// Falta la tabla Plato con sus respectivas operaciones
     const char *sql = 
         "CREATE TABLE IF NOT EXISTS Clientes ("
         "id_cliente INTEGER PRIMARY KEY AUTOINCREMENT, "
