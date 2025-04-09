@@ -38,7 +38,21 @@ int inicializar_db(sqlite3 **db, const char *db_name) {
         "activa INTEGER DEFAULT 1, "
         "FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente), "
         "FOREIGN KEY (id_menu) REFERENCES Menus(id_menu), "
-        "FOREIGN KEY (id_mesa) REFERENCES Mesas(id_mesa));";
+        "FOREIGN KEY (id_mesa) REFERENCES Mesas(id_mesa));"
+
+        "CREATE TABLE IF NOT EXISTS Plato ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "nombre TEXT UNIQUE NOT NULL,"
+        "descripcion TEXT,"
+        "precio REAL NOT NULL CHECK(precio>0),"
+        "disponible INTEGER NOT NULL DEFAULT 1 CHECK(disponible IN (0, 1)));" // 1 no disponible, 0 disponible
+
+        "CREATE TABLE IF NOT EXISTS Pedido ("
+        "id_pedido INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "id_usuario INTEGER NOT NULL,"
+        "direccion TEXT NOT NULL,"
+        "estado INT NOT NULL CHECK(estado IN (0,1,2))," //0->En cola, 1->En camino, 2->entregado
+        "FOREIGN KEY(id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE);";
 
     char *err_msg = 0;
     rc = sqlite3_exec(*db, sql, 0, 0, &err_msg);
@@ -260,3 +274,7 @@ void eliminar_reserva(sqlite3 *db, int id) {
         sqlite3_free(err_msg);
     }
 }
+
+// --- Plato ---
+
+// --- Pedido ---
